@@ -4,6 +4,8 @@
 ### Overview
 
 The goal of this project is to use what I know about visualizations and probability distributions to distinguish between customers who accepted a driving coupon for a restaurant less than $20 versus those who did not.
+
+The complete analysis can be found here: [Jupyter Notebook]([https://pages.github.com/](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/notebook/prompt.ipynb))
 #### Question statement: Do income, marital status, and having children affect the acceptance rate of coupons for less expensive restaurants (< $20)?
 
 #### Driver attributes used for this analysis
@@ -23,38 +25,38 @@ To prepare our data, we had to do some data cleaning.
  Let's analyze the relationship between Marital Status and income level
  
 ![Logo](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/images/boxplot.png)
-* From this boxplot, we observe that Married partners have an average higher income than other marital status. Using this, we can further explore how many of each marital groups have accepted coupons for restaurants with average expense less than $20.
-* Lets look at the acceptance rate (Column 'Y' = 1) of each marital status.
-    - We can find the acceptance rate by taking the mean of 'Y' column: `data['Y'].mean()`. This is     possible due to 'Y' column being a boolean. Therefore, the mean of a boolean logic (values with 0s and 1s) will always give us the ratio of 1s to the total number of values.
+* From this boxplot, we observe that Married partners have an average higher income than other marital statuses. Using this, we can further explore how many of each marital group have accepted coupons for restaurants with an average expense of less than $20.
+* Let's look at the acceptance rate (Column 'Y' = 1) of each marital status.
+    - We can find the acceptance rate by taking the mean of the 'Y' column: `data['Y'].mean()`. This is     possible due to the 'Y' column being a boolean. Therefore, the mean of a boolean logic (values with 0s and 1s) will always give us the ratio of 1s to the total number of values.
 ### Acceptance rate by Marital status:
 
 ![Logo](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/images/maritalAcceptance.png)
-* We can see that Single individuals have the highest acceptance rate compared to other marital statuses. Therefore, we can conclude that Single individuals are more likely to accept coupon for a restaurants with average expense less than $20.
+* We can see that Single individuals have the highest acceptance rate compared to other marital statuses. Therefore, we can conclude that Single individuals are more likely to accept coupons for restaurants with an average expense of less than $20.
 
-* Our next analysis is how will our result we got from the previous plot change if we add income and one of the other factor.
-* To analize this, we will group our data using `groupby(['maritalStatus', 'income'])`.
-* Lets first analyze how our data will look like if we sum up all individuals that accepted the coupon and plot them in their income and marital status catagory.
+* Our next analysis is how will the result we got from the previous plot change if we add income and one of the other factors.
+* To analyze this, we will group our data using `groupby(['maritalStatus', 'income'])`.
+* Let's first analyze how our data will look if we sum up all individuals who accepted the coupon and plot them in their income and marital status category.
 ### Total acceptance by income:
 
 ![Logo](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/images/totalAcc.png)
-* We can see that when income is lower than $56,249, More single individuals accept the coupon. But income above that value, we see that more married partners accept the coupons.
+* We can see that when income is lower than $56,249, More single individuals accept the coupon. But with income above that value, we see that more married partners accept the coupons.
 
 ### Acceptance rate by Income:
 
 ![Logo](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/images/incomeVacc.png)
 
-* We don't see the same pattern. When we take account the acceptance rate within each group, we actually see that Divorced marital status on average have a higher acceptance rate when income is below $56,249 and we see unmarried partners having slightly higher acceptance rate on income group above $56,249.
+* We don't see the same pattern. When we take into account the acceptance rate within each group, we see that Divorced marital status on average have a higher acceptance rate when income is below $56,249 and we see unmarried partners having a slightly higher acceptance rate in income group above $56,249.
 
-* We can hypothesize that the observation from the this plot is due to other marital statuses having higher mean acceptance rate.
+* We can hypothesize that the observation from this plot is due to other marital statuses having a higher mean acceptance rate.
 
-Would having childern affect the acceptance rate between each marital statuses?
+Would having children affect the acceptance rate between each marital status?
 
 ### Acceptance rate by Marital status and Children:
 ![Logo](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/images/maritalAccBych.png)
 
-* We can see that on average, people with childern have a higher acceptance rate compared to individuals with no kids.
+* We can see that on average, people with children have a higher acceptance rate compared to individuals with no kids.
 We can further observe this correlation by plotting all 4 columns on a heatmap:
-### marital status with/without childern and income:
+### marital status with/without children and income:
 ![Logo](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/images/heatmap.png)
 * We see that over the average income range, single parents have a higher chance of accepting this coupon.
 
@@ -63,14 +65,14 @@ We can further observe this correlation by plotting all 4 columns on a heatmap:
 * There is a strong correlation between weather and acceptance rate and we also see that there's a slight increase in acceptance rate of males compared to females.
 ### Weather vs Age:
 ![Logo](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/images/Weatheatmap.png)
-* We can see weather and age have an effect on acceptance rate. Weather and acceptance rate have positive correlation whereas age and acceptance rate have a negative correlation.
+* We can see whether weather and age affect the acceptance rate. Weather and acceptance rate have a positive correlation whereas age and acceptance rate have a negative correlation.
 
 ### Conclusion:
- - Income and marital status have an effect on coupon acceptance with having children also positively having an effect on acceptance rate. 
- - Marital status combined with childern has a slight effect on acceptance rate.
- - Gender and weather can affect acceptance rate: Males having a slightly higher acceptance rate overall across all weather.
- - Weather has a strong positive correlation to acceptance rate by each age group. Age and acceptance rate have a negative correlation. As age increases, acceptance rate decreases.
+ - Income and marital status have an effect on coupon acceptance with having children also positively affecting the acceptance rate. 
+ - Marital status combined with children has a slight effect on the acceptance rate.
+ - Gender and weather can affect acceptance rate: Males have a slightly higher acceptance rate overall across all weather.
+ - Weather has a strong positive correlation to the acceptance rate by each age group. Age and acceptance rate have a negative correlation. As age increases, the acceptance rate decreases.
 
 ### Next step:
- - Add other factors that contribute to the acceptance rate of cheaper restaurants (<$20) like direction to restaurant and distance to make our analysis robust.
+ - Add other factors that contribute to the acceptance rate of cheaper restaurants (<$20) like direction to the restaurant and distance to make our analysis robust.
  - Finalize our analysis to start building our training model.
