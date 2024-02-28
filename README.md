@@ -10,7 +10,7 @@ The complete analysis can be found here: [Jupyter Notebook](https://github.com/Z
 * How does income, marital status, having children, age, gender, and weather impact the acceptance rate of coupons for restaurants with a value of less than $20?
 
 # Data collection:
-We begin by filtering the dataset to isolate coupons designated for restaurants with a value of less than $20, as indicated in the 'coupon' column. This initial filtering yields 2786 data entries, exhibiting an acceptance rate of 70.5%. Within this dataset, individuals boast an average income of $52,676. Notably, the acceptance rate remains consistent at 70% for both those with incomes below and above the average.
+We begin by filtering the dataset to isolate coupons for restaurants with a value of less than $20, as indicated in the 'coupon' column. This initial filtering yields 2786 data entries, with an acceptance rate of 70.5%. Within this dataset, individuals boast an average income of $52,676. Notably, the acceptance rate remains consistent at 70% for both those with incomes below and above the average.
 
 # Driver attributes used for this analysis:
 * Marital Status: single, married partner, unmarried partner, or widowed
