@@ -1,5 +1,5 @@
 
-# Will a Customer Accept the Coupon?
+# Understanding Coupon Acceptance
 
 # Overview
 
