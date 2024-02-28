@@ -1,28 +1,31 @@
 
 # Will a Customer Accept the Coupon?
 
-### Overview
+# Overview
 
 The goal of this project is to use what I know about visualizations and probability distributions to distinguish between customers who accepted a coupon for a restaurant less than $20 versus those who did not.
 
 The complete analysis can be found here: [Jupyter Notebook](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/notebook/prompt.ipynb)
-#### Question statement: Do income, marital status, and having children affect the acceptance rate of coupons for less expensive restaurants (< $20)?
+## Question statement:
+* How does income, marital status, having children, age, gender, and weather impact the acceptance rate of coupons for restaurants with a value of less than $20?
 
-#### Driver attributes used for this analysis
+# Data collection:
+We begin by filtering the dataset to isolate coupons designated for restaurants with a value of less than $20, as indicated in the 'coupon' column. This initial filtering yields 2786 data entries, exhibiting an acceptance rate of 70.5%. Within this dataset, individuals boast an average income of $52,676. Notably, the acceptance rate remains consistent at 70% for both those with incomes below and above the average.
+
+# Driver attributes used for this analysis:
 * Marital Status: single, married partner, unmarried partner, or widowed
 * Number of children: 0, 1, or more than 1.
 * Annual income: less than $12500, $12500 - $24999, $25000 - $37499, etc.
 * Number of times that he/she eats at a restaurant with an average expense of less than $20 per person: 0, less than 1, 1 to 3, 4 to 8 or greater than 8.
-#### For this analysis, I'll be using Python to explore the given dataset. Libraries used are Pandas, seaborn, matplotlib, and Numpy.
-### Data Setup
+#### We'll be using Python to explore the given dataset. Libraries used are Pandas, seaborn, matplotlib, and Numpy.
+# Data Setup:
 To prepare our data, we had to do some data cleaning.
 * Columns like age, bar, coffeeHouse, carryAway, RestaurantLessThan20,Restaurant20To50, and salary should be int64 values but our data has them as objects. These fields were converted to int64 for better analysis.
 * For values like salary that are range-based, the mean can be used to replace the string format.
-* Filter our data for *Restaurant(<20)* coupons from column *'coupon'*.
 * Remove null values that we don't need so our data is not skewed.
 
-### Analysis
- Let's analyze the relationship between Marital Status and income level
+# Analysis
+ Let's analyze the relationship between Marital Status and income level:
  
 ![Logo](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/images/boxplot.png)
 * From this boxplot, we observe that Married partners have an average higher income than other marital statuses. Using this, we can further explore how many of each marital group have accepted coupons for restaurants with an average expense of less than $20.
@@ -39,15 +42,15 @@ To prepare our data, we had to do some data cleaning.
 ### Total acceptance by income:
 
 ![Logo](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/images/totalAcc.png)
-* We can see that when income is lower than $56,249, More single individuals accept the coupon. But with income above that value, we see that more married partners accept the coupons.
+* among individuals with incomes below $56,249, a higher proportion of single individuals tend to accept the coupon. Conversely, for those with incomes exceeding this threshold, there is a notable increase in the acceptance rate among married partners.
 
 ### Acceptance rate by Income:
 
 ![Logo](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/images/incomeVacc.png)
 
-* We don't see the same pattern. When we take into account the acceptance rate within each group, we see that Divorced marital status on average have a higher acceptance rate when income is below $56,249 and we see unmarried partners having a slightly higher acceptance rate in income group above $56,249.
+* However, we don't see the same pattern when analyzing the acceptance rat. When we take into account the acceptance rate within each group, we see that Divorced marital status on average have a higher acceptance rate when income is below $56,249 and we see unmarried partners having a slightly higher acceptance rate in income group above $56,249.
 
-* We can hypothesize that the observation from this plot is due to other marital statuses having a higher mean acceptance rate.
+* We can hypothesize that the observation from this plot is due to other marital statuses having a higher mean acceptance rate, evening out the spike we saw with single individuals.
 
 Would having children affect the acceptance rate between each marital status?
 
