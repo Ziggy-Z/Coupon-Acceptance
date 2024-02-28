@@ -3,7 +3,7 @@
 
 ### Overview
 
-The goal of this project is to use what I know about visualizations and probability distributions to distinguish between customers who accepted a driving coupon for a restaurant less than $20 versus those who did not.
+The goal of this project is to use what I know about visualizations and probability distributions to distinguish between customers who accepted a coupon for a restaurant less than $20 versus those who did not.
 
 The complete analysis can be found here: [Jupyter Notebook](https://github.com/Ziggy-Z/Coupon-Acceptance/blob/main/notebook/prompt.ipynb)
 #### Question statement: Do income, marital status, and having children affect the acceptance rate of coupons for less expensive restaurants (< $20)?
